@@ -7,27 +7,19 @@ $(function() {
       minWidth          = 992;
 
   /*
-   * Sets the inner-shadow height for responsive view
+   * Resize callback for responsive updates
    */
-  var setInnerShadow = function() {
-    return $scrollOverlay.find('.inner-shadow').height($('.profile-img-fixed .content-container .inner').height());
-  };
-  $window.on('resize', setInnerShadow);
-
-  /*
-   * Position the main naviation for responsive view
-   */
-  var mainNavigationDisplay = function(e) {
+  $window.resize(function() {
     if ($window.width() <= minWidth) {
       $mainNavigation.css({top: -$mainNavigation.outerHeight()});
       if ($mainNavigation.hasClass('open')) {
-        return $('.main-navigation').removeClass('open').addClass('closed');
+        $mainNavigation.removeClass('open').addClass('closed');
       }
     } else {
-      return $mainNavigation.css({top: 0});
+      $mainNavigation.css({top: 0});
     }
-  };
-  $window.on('resize', mainNavigationDisplay);
+    return $scrollOverlay.find('.inner-shadow').height($('.profile-img-fixed .content-container .inner').height());
+  });
 
   /*
    * Navigation open and close
@@ -73,10 +65,14 @@ $(function() {
       }
       if (top <= rotateMax) {
         $arrow2.css('transform', 'rotate(' + top + 'deg)');
+      } else {
+        $arrow2.css('transform', 'rotate(' + rotateMax + 'deg)')
       }
     }
     if (top <= rotateMax) {
       $arrow.css('transform', 'rotate(' + top + 'deg) scale(' + scale + ')');
+    } else {
+      $arrow.css('transform', 'rotate(' + rotateMax + 'deg) scale(0.5)');
     }
   });
 

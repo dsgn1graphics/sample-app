@@ -171,11 +171,8 @@ h1, h2, h3, h4, h5, h6 {
   float: right;
 }
 
-.main-navigation {
-  left: -320px;
-}
-
 .main-navigation.closed {
+  left: 0px;
    -wekit-animation: slideOutLeft 0.5s forwards;
    -webkit-animation-delay: 0s;
    animation: slideOutLeft 0.5s forwards;
@@ -183,6 +180,7 @@ h1, h2, h3, h4, h5, h6 {
  }
 
 .main-navigation.open {
+  left: -320px;
   -wekit-animation: slideInLeft 0.5s forwards;
   -webkit-animation-delay: 0s;
   animation: slideInLeft 0.5s forwards;
