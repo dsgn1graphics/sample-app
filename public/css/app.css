@@ -339,6 +339,9 @@ h1, h2, h3, h4, h5, h6 {
     animation: none !important;
     animation-delay: none !important;
   }
+  .main-navigation.open .nav-control .inner {
+    transform: translateX(0px) !important;
+  }
   .main-navigation .nav-control {
     display: block !important;
     position: relative;
@@ -360,6 +363,10 @@ h1, h2, h3, h4, h5, h6 {
     transform: none;
     transform-origin: inherit;
     margin: 0px;
+  }
+  .main-navigation.open .nav-control p {
+    padding-left: 0px;
+    margin-left: 0px;
   }
   .main .content-container {
     margin-top: 50px;
